@@ -3,7 +3,7 @@
 <br clear="left"/>
 
 - [ ] ``!hug`` command.
-- [ ] ``!kawaii`` command.
+- [x] ``!kawaii`` command.
 - [ ] *``Coming Soon...``*
 
 ## What is it?
