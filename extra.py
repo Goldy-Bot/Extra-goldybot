@@ -4,7 +4,7 @@ import asyncio
 
 from goldy_func import *
 from goldy_utility import *
-import config.msg as msg
+import utility.msg as msg
 
 #Change 'your_cog' to the name you wish to call your cog. ('your_cog' is just a placeholder.)
 cog_name = "extra"
