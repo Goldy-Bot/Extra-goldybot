@@ -1,5 +1,12 @@
 # 💜Extra Cog *([for Goldy Bot](https://github.com/TGP-Projects/Goldy-Bot-V3))*
 
+<div class="row">
+ <div class="column">
+   <img align="left" src="https://media.discordapp.net/attachments/876976105335177286/893606816842391602/unknown.png" width="500">
+ </div>
+</div>
+
+<br clear="left"/>
 <br clear="left"/>
 
 - [ ] ``!hug`` command.
