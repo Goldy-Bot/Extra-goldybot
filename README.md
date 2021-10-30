@@ -9,7 +9,7 @@
 <br clear="left"/>
 <br clear="left"/>
 
-- [ ] ``!hug`` command.
+- [x] ``!hug`` command.
 - [x] ``!kawaii`` command.
 - [ ] *``Coming Soon...``*
 
