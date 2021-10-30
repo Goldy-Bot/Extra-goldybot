@@ -5,7 +5,7 @@ import asyncio
 
 from src.goldy_func import *
 from src.goldy_utility import *
-import utility.msg as msg
+import src.utility.msg as msg
 
 from cogs.database import database
 from cogs.giphy_cog import api
