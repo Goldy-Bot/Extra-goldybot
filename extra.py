@@ -1,4 +1,4 @@
-
+import datetime
 import nextcord
 from nextcord.ext import commands
 import asyncio
@@ -33,6 +33,15 @@ class extra(commands.Cog, name="💜Extra"):
             else:
                 await ctx.send(msg.error.do_not_have_item.format(ctx.author.mention))
 
+    @kawaii.error
+    async def command_error(self, ctx, error):
+        if isinstance(error, commands.CommandOnCooldown):
+            await cmds.cooldown.msg_send(ctx, error)
+        if isinstance(error, (commands.MemberNotFound, commands.ExpectedClosingQuoteError)):
+            await ctx.send(msg.error.member_not_found.format(ctx.author.mention))
+        else:
+            await goldy.log_error(ctx, self.client, error, f"{cog_name}.kawaii")
+
     @commands.command(description="💕 Feel in the need to hug somebody, we got you.")
     @commands.cooldown(1, 2.8, commands.BucketType.user)
     async def hug(self, ctx, member: nextcord.Member=None):
@@ -52,6 +61,39 @@ class extra(commands.Cog, name="💜Extra"):
                     return False
             else:
                 await ctx.send(msg.error.do_not_have_item.format(ctx.author.mention))
+                
+    @hug.error
+    async def command_error(self, ctx, error):
+        if isinstance(error, commands.CommandOnCooldown):
+            await cmds.cooldown.msg_send(ctx, error)
+        if isinstance(error, (commands.MemberNotFound, commands.ExpectedClosingQuoteError)):
+            await ctx.send(msg.error.member_not_found.format(ctx.author.mention))
+        else:
+            await goldy.log_error(ctx, self.client, error, f"{cog_name}.hug")
+
+    @commands.command(description="😊 Idk, it shows gifs of anime characters blushing I guess?")
+    @commands.cooldown(1, 1.8, commands.BucketType.user)
+    async def blush(self, ctx):
+        if await can_the_command_run(ctx, cog_name) == True:
+            if await database.member.checks.has_item(ctx, "!blush"):
+                gif_url = await api.gif.random(ctx, self.client, "anime blush", (0, 30))
+
+                embed = nextcord.Embed(title=f"😊 __{ctx.author.name}'s__ blushing!", color=settings.AKI_RED)
+                embed.set_image(url=gif_url)
+                embed.set_footer(text=msg.footer.giphy)
+                await ctx.send(embed=embed)
+
+            else:
+                await ctx.send(msg.error.do_not_have_item.format(ctx.author.mention))
+
+    @blush.error
+    async def command_error(self, ctx, error):
+        if isinstance(error, commands.CommandOnCooldown):
+            await cmds.cooldown.msg_send(ctx, error)
+        if isinstance(error, (commands.MemberNotFound, commands.ExpectedClosingQuoteError)):
+            await ctx.send(msg.error.member_not_found.format(ctx.author.mention))
+        else:
+            await goldy.log_error(ctx, self.client, error, f"{cog_name}.blush")
 
 def setup(client):
     client.add_cog(extra(client))
